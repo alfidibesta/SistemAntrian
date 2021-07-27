@@ -33,34 +33,6 @@
 
 				<div class="navbar-custom-menu">
 					<ul class="nav navbar-nav">
-						<!-- <li class="dropdown tasks-menu">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-								<i class="fa fa-flag-o"></i>
-								<span class="label label-danger">3</span>
-							</a>
-							<ul class="dropdown-menu">
-								<li class="header">You have 3 tasks</li>
-								<li>
-									<ul class="menu">
-										<li>
-										<a href="#">
-											<h3>Design some buttons
-												<small class="pull-right">20%</small>
-											</h3>
-											<div class="progress xs">
-												<div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-													<span class="sr-only">20% Complete</span>
-												</div>
-											</div>
-										</a>
-										</li>
-									</ul>
-								</li>
-								<li class="footer">
-									<a href="#">View all tasks</a>
-								</li>
-							</ul>
-						</li> -->
 						<!-- User Account -->
 						<li class="dropdown user user-menu">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -123,11 +95,6 @@
 					<li <?= $this->uri->segment(1) == 'tampil' ? 'class="active"' : '' ?>>
 						<a href="<?= site_url('tampil') ?>"><i class="fa fa-users "></i> <span>Layar</span></a>
 					</li>
-					<!-- <li>
-						<a href="">
-							<i class="fa fa-users"></i> <span>Customers</span>
-						</a>
-					</li> -->
 					<?php if ($this->fungsi->user_login()->level == 1 && 2) { ?>
 						<li class="treeview" <?= $this->uri->segment(1) == 'history' ? 'class="active"' : '' ?>>
 							<a href="#">
@@ -166,14 +133,85 @@
 	<script src="<?= base_url() ?>assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="<?= base_url() ?>assets/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 	<script src="<?= base_url() ?>assets/dist/js/adminlte.min.js"></script>
-
+	<script src="<?= base_url() ?>assets/bower_components/chart.js/Chart.js"></script>
 	<script src="<?= base_url() ?>assets/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 	<script src="<?= base_url() ?>assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-
 	<script>
 		$(document).ready(function() {
 			$('#table1').DataTable()
 		})
+	</script>
+	<script>
+		//-------------
+		//- PIE CHART -
+		//-------------
+		// Get context with jQuery - using jQuery's .get() method.
+		var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
+		var pieChart = new Chart(pieChartCanvas)
+		var PieData = [{
+				value: 700,
+				color: '#f56954',
+				highlight: '#f56954',
+				label: 'Chrome'
+			},
+			{
+				value: 500,
+				color: '#00a65a',
+				highlight: '#00a65a',
+				label: 'IE'
+			},
+			{
+				value: 400,
+				color: '#f39c12',
+				highlight: '#f39c12',
+				label: 'FireFox'
+			},
+			{
+				value: 600,
+				color: '#00c0ef',
+				highlight: '#00c0ef',
+				label: 'Safari'
+			},
+			{
+				value: 300,
+				color: '#3c8dbc',
+				highlight: '#3c8dbc',
+				label: 'Opera'
+			},
+			{
+				value: 100,
+				color: '#d2d6de',
+				highlight: '#d2d6de',
+				label: 'Navigator'
+			}
+		]
+		var pieOptions = {
+			//Boolean - Whether we should show a stroke on each segment
+			segmentShowStroke: true,
+			//String - The colour of each segment stroke
+			segmentStrokeColor: '#fff',
+			//Number - The width of each segment stroke
+			segmentStrokeWidth: 2,
+			//Number - The percentage of the chart that we cut out of the middle
+			percentageInnerCutout: 50, // This is 0 for Pie charts
+			//Number - Amount of animation steps
+			animationSteps: 100,
+			//String - Animation easing effect
+			animationEasing: 'easeOutBounce',
+			//Boolean - Whether we animate the rotation of the Doughnut
+			animateRotate: true,
+			//Boolean - Whether we animate scaling the Doughnut from the centre
+			animateScale: false,
+			//Boolean - whether to make the chart responsive to window resizing
+			responsive: true,
+			// Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
+			maintainAspectRatio: true,
+			//String - A legend template
+			legendTemplate: '<ul class="<%=name.toLowerCase()%>-legend"><% for (var i=0; i<segments.length; i++){%><li><span style="background-color:<%=segments[i].fillColor%>"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>'
+		}
+		//Create pie or douhnut chart
+		// You can switch between pie and douhnut using the method below.
+		pieChart.Doughnut(PieData, pieOptions)
 	</script>
 
 </body>

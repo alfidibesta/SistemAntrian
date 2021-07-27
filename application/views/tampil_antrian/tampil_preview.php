@@ -24,8 +24,7 @@
                                 foreach ($row->result() as $key => $data) { ?>
                                     <tr>
                                         <td><?= $data->name ?></td>
-                                        <!-- nomer antrian belum di koneksikan ke database -->
-                                        <td>A001</td>
+                                        <td></td>
                                     </tr>
                                 <?php } ?>
                             </tbody>
@@ -43,6 +42,7 @@
                     <div class="card">
                         <!-- header time -->
                         <div class="card-header">
+
                             <body>
                                 <p id="time"></p>
                             </body>

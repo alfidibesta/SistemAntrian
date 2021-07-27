@@ -1,10 +1,10 @@
 <section class="content-header">
     <h1>
-        Users
-        <small>Pengurus</small>
+        Data
+        <small>Antrian</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-user"></i> Users</a></li>
+        <li><a href="#"><i class="fa fa-user"></i> History</a></li>
     </ol>
 </section>
 
@@ -13,7 +13,6 @@
 
     <div class="box">
          <div class="box-header">
-            <h3 class="box-title">Data User</h3>
             <div class="pull-right">
                 <a href="<?=site_url('user/add')?>" class="btn btn-primary btn-flat">
                     <i class="fa fa-user-plus"></i> Tambah
