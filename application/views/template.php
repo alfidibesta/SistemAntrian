@@ -124,7 +124,7 @@
 			<div class="pull-right hidden-xs">
 				<b>Version</b> 1.0
 			</div>
-			<strong>Copyright &copy; <?php echo date("Y") ?> <a href="#">Dinas Kependudukan Dan Pencatatan Sipil Kota Malang</a></strong>
+			<strong>Copyright &copy; <?php echo date("Y") ?> <a href="<?=site_url('dashboard')?>">Dinas Kependudukan Dan Pencatatan Sipil Kota Malang</a></strong>
 		</footer>
 
 	</div>

@@ -24,35 +24,44 @@
     <link href="css/styles.css" rel="stylesheet" />
 </head>
 
-<body class="hold-transition">
-    <header class="">
-        <!-- Responsive navbar-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-blue">
-            <div class="container px-lg-5" style="text-align: center;">
-                <a class="navbar-brand" href="#!" style="font-size: 18pt;"><b> Pendudukan dan Pencatatan Sipil Kota Malang </b></a>
+<body class="hold-transition skin-blue layout-top-nav">
+    <div class="wrapper">
+        <header class="main-header">
+            <nav class="navbar navbar-static-top navbar-expand-lg navbar-dark bg-blue">
+                <div class="container">
+                    <div class="navbar-header">
+                        <a href="#" class="navbar-brand"><b>Dinas Kependudukan dan Pencatatan Sipil</b></a>
+                    </div>
+                </div>
+                <!-- /.container-fluid -->
+            </nav>
+        </header>
+        <!-- Full Width Column -->
+        <div class="content-wrapper">
+            <div class="container">
+                <!-- Content Header (Page header) -->
+                <?php echo $contents ?>
+                <!-- /.content -->
             </div>
-        </nav>
-    </header>
-    <!-- Content Wrapper -->
-    <div class="content-wrapper, container">
-        <?php echo $contents ?>
+            <!-- /.container -->
+        </div>
+        <!-- /.content-wrapper -->
+        <footer class="main-footer">
+            <div class="container">
+                <div class="pull-right hidden-xs">
+                    <b>Version</b> 1.0.0
+                </div>
+                <strong>Copyright &copy; <?php echo date("Y")?> <a href="<?=site_url('dashboard')?>">Dinas Kependudukan Dan Pencatatan Sipil Kota Malang</a>.</strong>
+            </div>
+            <!-- /.container -->
+        </footer>
     </div>
+    <!-- ./wrapper -->
 
-    <!-- Footer-->
-    <br>
-    <footer class="footer py-5 bg-light absolute-bottom">
-        <div class="container">
-        <div class="pull-right hidden-xs">
-            <b>Version</b> 1.0
-        </div>
-        <strong>Copyright &copy; <?php echo date("Y") ?> <a href="#">Dinas Kependudukan Dan Pencatatan Sipil Kota Malang</a>.</strong> All rights reserved.
-        </div>
-    </footer>
-
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
-    <script src="js/scripts.js"></script>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
 </body>
 
 <script src="<?= base_url() ?>assets/bower_components/jquery/dist/jquery.min.js"></script>

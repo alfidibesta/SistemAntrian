@@ -1,105 +1,187 @@
-<body>
-    <!-- Page Content-->
-    <section class="container">
-        <div class="row">
-            <!-- content informasi petugas -->
-            <div class="col-8">
-                <div class="box card bg-green" style="font-size: 14pt;">
-                    <div class="row container">
-                        <!-- backend -->
-                        <div class="col-4">
-                            <!-- connect login loket -->
-                            Loket 1
+<section class="content-header">
+    <h1>Loket 1
+        <small>Layar Petugas Loket</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="<?= site_url('tampil/index') ?>"><i class="fa fa-dashboard"></i></a></li>
+        <li class="active">Layar Petugas Loket</li>
+    </ol>
+</section>
+
+<section class="content">
+    <!-- START ALERTS AND CALLOUTS -->
+    <div class="row">
+        <div class="col-md-8">
+            <div class="box box-success">
+                <div class="box-header with-border">
+                    <div>
+                        <h3 class="box-title"> <i class="fa fa-users"></i> Antrian Pelayanan</h3>
+                    </div>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <div class="box box-solid" style="background: whitesmoke;">
+                        <div class="box-body">
+                            <Center>
+                                <p class="" style="font-size: 10;">Pelayanan Saat Ini</p>
+                                <hr>
+                                <p style="font-size: 12pt;">Nomer Antrian</p>
+                                <b>
+                                    <p style="font-size: 28pt;">1</p>
+                                </b>
+                                <hr>
+                                <p class="" style="font-size: 10;">Petugas : Dinda</p>
+                            </Center>
                         </div>
-                        <div class="col-4 text-right">
-                            <!-- connect login nama admin loket -->
-                            Admin
+                        <!-- /.box-body -->
+                    </div>
+
+                    <div class="box box-success">
+                        <div class="box-body">
+                            <div class="row d-grid gap-2 d-md-block mx-auto">
+                                <div class="col-md-3">
+                                    <center>
+                                        <a href="">
+                                            <button class="btn btn-warning btn-block"> Panggil</button>
+                                        </a>
+                                    </center>
+                                </div>
+                                <div class="col-md-3">
+                                    <center>
+                                        <button class="btn btn-primary btn-block" type="button" data-toggle="modal" data-target="#modal-info"> Selesai</button>
+                                    </center>
+                                </div>
+                                <div class="col-md-3">
+                                    <center>
+                                        <a href="">
+                                            <button class="btn btn-success btn-block"> Selanjutnya</button>
+                                        </a>
+                                    </center>
+                                </div>
+                                <div class="col-md-3">
+                                    <center>
+                                        <a href="">
+                                            <button class="btn btn-danger btn-block"> Batal</button>
+                                        </a>
+                                    </center>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <!-- Content Antrian -->
-                <div class="box card text-center">
-                    <!-- header time -->
-                    <div class="card-header bg-orange">
-
-                        <body>
-                            <p id="time"></p>
-                        </body>
-                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-                        <script type="text/javascript">
-                            var timestamp = '<?= time(); ?>';
-
-                            function updateTime() {
-                                $('#time').html(Date(timestamp));
-                                timestamp++;
-                            }
-                            $(function() {
-                                setInterval(updateTime, 1000);
-                            });
-                        </script>
-                    </div>
-                    <!-- header /.time -->
-                    <!-- Current queue -->
-                    <div class="card-body" style="background-color: #3c8dbc; color: white;">
-                        <p style="font-size: 25px;">Pelayanan Berlangsung</p>
-                        <p style="font-size: 50px;"><b>Nomor Antrian</b></p>
-                        <p style="font-size: 100px;"><b>A001</b></p>
-                    </div>
-                    <!-- /.Current queue -->
-                    <!-- footer -->
-                    <div class="card-footer text-muted bg-orange">
-                        Layanan Terpadu
-                    </div>
-                    <!-- footer -->
-                </div>
+                <!-- /.box-body -->
             </div>
-            <!-- /.content informasi petugas -->
-
-
-            <!-- white space -->
-            <div class="row col-1"></div>
-
-            <!-- content action  -->
-            <div class="row col-3">
-                <!-- content -->
-                <!-- first content -->
-                <div class="box card bg-blue text-center">
-                    <div class="" style="justify-content: center; align-items: center;">
-                        <br>
-                        <p>Nomer Urut Selanjutnya</p>
-                        <p style="font-size: 20pt;"><b>2</b></p>
-                    </div>
-                </div>
-                <br>
-                <!-- /.first content -->
-                <!-- second content -->
-                <button type="button" class="box btn btn-block bg-green text-center">
-                    <p style="font-size: 20pt;"><b>Selanjutnya</b></p>
-                </button>
-                <br>
-                <!-- /.second content -->
-                <!-- third content -->
-                <button type="button" class="box btn btn-block bg-orange text-center">
-                    <p style="font-size: 20pt;"><b>Panggil</b></p>
-                </button>
-                <br>
-                <!-- /.third content -->
-                <!-- four content -->
-                <div class="box card bg-blue text-center" style="justify-content: center; align-items: center;">
-                    <a>Total Pelayanan Hari Ini : <a> <b>2</b></a></a>
-                </div>
-                <br>
-                <!-- /.four content -->
-                <!-- back tampil -->
-                <a href="<?= site_url('tampil') ?>" class="box btn btn-block bg-red text-center" style="justify-content: center; text-align: center;">
-                    <i class="fa fa-undo"></i> Back
-                </a>
-                <!-- /.back tampil -->
-            </div>
-            <!-- /.content action  -->
+            <!-- /.box -->
         </div>
-    </section>
-    <!-- /.Page Content-->
-</body>
+        <!-- /.col -->
 
-</html>
+        <div class="col-md-4">
+            <div class="box box-warning">
+                <div class="box-header with-border">
+                    <div>
+                        <h3 class="box-title">Pelayanan hari ini</h3>
+                    </div>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <table class="table table-bordered">
+                        <tr>
+                            <th style="width: 10px">#</th>
+                            <th>Task</th>
+                            <th>Status</th>
+                            <th style="width: 40px"></th>
+                        </tr>
+                        <tr>
+                            <td>1.</td>
+                            <td><b>1</b></td>
+                            <td><span class="label label-success">Sudah terlayani</span></td>
+                            <td>
+                                <button type="button" class="btn btn-block btn-warning btn-xs">
+                                    <i class="fa fa-bullhorn"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2.</td>
+                            <td><b>2</b></td>
+                            <td><span class="label label-success">Sudah terlayani</span></td>
+                            <td>
+                                <button type="button" class="btn btn-block btn-warning btn-xs">
+                                    <i class="fa fa-bullhorn"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3.</td>
+                            <td><b>3</b></td>
+                            <td><span class="label label-success">Sudah terlayani</span></td>
+                            <td>
+                                <button type="button" class="btn btn-block btn-warning btn-xs">
+                                    <i class="fa fa-bullhorn"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4.</td>
+                            <td><b>4</b></td>
+                            <td><span class="label label-danger">Belum terlayani</span></td>
+                            <td>
+                                <button type="button" class="btn btn-block btn-warning btn-xs">
+                                    <i class="fa fa-bullhorn"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer clearfix">
+                    <ul class="pagination pagination-sm no-margin pull-right">
+                        <li><a href="#">&laquo;</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">&raquo;</a></li>
+                    </ul>
+                </div>
+                <div class="box box-solid" style="background: whitesmoke;">
+                    <div class="box-body">
+
+                        Total Pelayanan Saat ini : <b>1</b>
+
+                    </div>
+                </div>
+            </div>
+            <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+    </div>
+    <!-- /.col -->
+    </div>
+    <!-- /.row -->
+    <!-- END ALERTS AND CALLOUTS -->
+
+    <!-- modal -->
+    <div class="modal modal-default fade" id="modal-info">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>Peringatan</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Apakah pelayanan sudah selesai&hellip;</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                    <a href="<?= site_url('tampil/petugas') ?>">
+                        <button type="button" class="btn btn-success">
+                            selanjutnya
+                        </button>
+                    </a>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+</section>
