@@ -134,6 +134,8 @@
 	<script src="<?= base_url() ?>assets/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 	<script src="<?= base_url() ?>assets/dist/js/adminlte.min.js"></script>
 	<script src="<?= base_url() ?>assets/bower_components/chart.js/Chart.js"></script>
+	
+	<script src="<?= base_url() ?>assets/bower_components/chart.js/Chart.js"></script>
 	<script src="<?= base_url() ?>assets/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 	<script src="<?= base_url() ?>assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 	<script>
@@ -141,48 +143,96 @@
 			$('#table1').DataTable()
 		})
 	</script>
+
 	<script>
 		//-------------
-		//- PIE CHART -
+		//- PIE CHART 1 -
 		//-------------
 		// Get context with jQuery - using jQuery's .get() method.
-		var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
+		var pieChartCanvas = $('#pieChart2').get(0).getContext('2d')
 		var pieChart = new Chart(pieChartCanvas)
 		var PieData = [{
 				value: 700,
 				color: '#f56954',
 				highlight: '#f56954',
-				label: 'Chrome'
+				label: 'Loket 1'
 			},
 			{
 				value: 500,
 				color: '#00a65a',
 				highlight: '#00a65a',
-				label: 'IE'
+				label: 'Loket 2'
 			},
 			{
 				value: 400,
 				color: '#f39c12',
 				highlight: '#f39c12',
-				label: 'FireFox'
+				label: 'Loket 3'
 			},
 			{
 				value: 600,
 				color: '#00c0ef',
 				highlight: '#00c0ef',
-				label: 'Safari'
+				label: 'Loket 4'
+			}
+		]
+		var pieOptions = {
+			//Boolean - Whether we should show a stroke on each segment
+			segmentShowStroke: true,
+			//String - The colour of each segment stroke
+			segmentStrokeColor: '#fff',
+			//Number - The width of each segment stroke
+			segmentStrokeWidth: 2,
+			//Number - The percentage of the chart that we cut out of the middle
+			percentageInnerCutout: 50, // This is 0 for Pie charts
+			//Number - Amount of animation steps
+			animationSteps: 100,
+			//String - Animation easing effect
+			animationEasing: 'easeOutBounce',
+			//Boolean - Whether we animate the rotation of the Doughnut
+			animateRotate: true,
+			//Boolean - Whether we animate scaling the Doughnut from the centre
+			animateScale: false,
+			//Boolean - whether to make the chart responsive to window resizing
+			responsive: true,
+			// Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
+			maintainAspectRatio: true,
+			//String - A legend template
+			legendTemplate: '<ul class="<%=name.toLowerCase()%>-legend"><% for (var i=0; i<segments.length; i++){%><li><span style="background-color:<%=segments[i].fillColor%>"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>'
+		}
+		//Create pie or douhnut chart
+		// You can switch between pie and douhnut using the method below.
+		pieChart.Doughnut(PieData, pieOptions)
+
+		//-------------
+		//- PIE CHART 2 -
+		//-------------
+		// Get context with jQuery - using jQuery's .get() method.
+		var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
+		var pieChart = new Chart(pieChartCanvas)
+		var PieData = [{
+				value: 20,
+				color: '#f56954',
+				highlight: '#f56954',
+				label: 'Loket 1'
 			},
 			{
-				value: 300,
-				color: '#3c8dbc',
-				highlight: '#3c8dbc',
-				label: 'Opera'
+				value: 15,
+				color: '#00a65a',
+				highlight: '#00a65a',
+				label: 'Loket 2'
 			},
 			{
-				value: 100,
-				color: '#d2d6de',
-				highlight: '#d2d6de',
-				label: 'Navigator'
+				value: 13,
+				color: '#f39c12',
+				highlight: '#f39c12',
+				label: 'Loket 3'
+			},
+			{
+				value: 10,
+				color: '#00c0ef',
+				highlight: '#00c0ef',
+				label: 'Loket 4'
 			}
 		]
 		var pieOptions = {

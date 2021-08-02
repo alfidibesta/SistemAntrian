@@ -26,6 +26,11 @@
                                 <p class="" style="font-size: 10;">Pelayanan Saat Ini</p>
                                 <hr>
                                 <p style="font-size: 12pt;">Nomer Antrian</p>
+
+                                <!-- <?php foreach ($antrianloket as $a => $data) { ?>
+                                    <p></p>
+                                <?php } ?> -->
+
                                 <b>
                                     <p style="font-size: 28pt;">1</p>
                                 </b>
@@ -87,13 +92,15 @@
                     <table class="table table-bordered">
                         <tr>
                             <th style="width: 10px">#</th>
-                            <th>Task</th>
+                            <th>Nomer Antrian</th>
                             <th>Status</th>
                             <th style="width: 40px"></th>
                         </tr>
                         <tr>
-                            <td>1.</td>
-                            <td><b>1</b></td>
+                        <?php $no = 1;
+                        foreach($row->result() as $key => $data) { ?>
+                            <td style="width:5%;"><?=$no++?>.</td>
+                            <td> <b> <?=$data->no_antrian_loket?> </b> </td>
                             <td><span class="label label-success">Sudah terlayani</span></td>
                             <td>
                                 <button type="button" class="btn btn-block btn-warning btn-xs">
@@ -101,36 +108,7 @@
                                 </button>
                             </td>
                         </tr>
-                        <tr>
-                            <td>2.</td>
-                            <td><b>2</b></td>
-                            <td><span class="label label-success">Sudah terlayani</span></td>
-                            <td>
-                                <button type="button" class="btn btn-block btn-warning btn-xs">
-                                    <i class="fa fa-bullhorn"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3.</td>
-                            <td><b>3</b></td>
-                            <td><span class="label label-success">Sudah terlayani</span></td>
-                            <td>
-                                <button type="button" class="btn btn-block btn-warning btn-xs">
-                                    <i class="fa fa-bullhorn"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>4.</td>
-                            <td><b>4</b></td>
-                            <td><span class="label label-danger">Belum terlayani</span></td>
-                            <td>
-                                <button type="button" class="btn btn-block btn-warning btn-xs">
-                                    <i class="fa fa-bullhorn"></i>
-                                </button>
-                            </td>
-                        </tr>
+                        <?php } ?>
                     </table>
                 </div>
                 <!-- /.box-body -->

@@ -17,7 +17,6 @@ class Antrian extends CI_Controller {
         $this->load->model('loket_m');
         $data['row'] = $this->antrianloket_m->getAll();
 		$this->template->load('template', 'antrian/antrian_data', $data);
-        // $this->load->view('card');
 	}
 
     public function del()

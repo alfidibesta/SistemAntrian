@@ -19,8 +19,8 @@
         <div class="info-box-content">
           <span class="info-box-text"><b>Layar Preview</b></span>
           <span class="info-box-text"><b>Antrian</b></span>
-          <a href="<?= site_url('tampil/priview')?>" class="btn btn-warning btn-xs">
-          Tampilkan
+          <a href="<?= site_url('tampil/priview') ?>" class="btn btn-warning btn-xs btn-block">
+            Tampilkan
           </a>
         </div>
         <!-- /.info-box-content -->
@@ -34,8 +34,20 @@
         <div class="info-box-content">
           <span class="info-box-text"><b>Layar Petugas</b></span>
           <span class="info-box-text"><b>Loket</b></span>
-          <a href="<?= site_url('tampil/petugas')?>" class="btn btn-warning btn-xs">
-          Tampilkan
+
+          <div class="btn-group">
+            <button type="button" class="btn btn-warning btn-xs dropdown-toggle" data-toggle="dropdown">
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu dropdown-warning">
+              <?php foreach ($loket as $l => $data) { ?>
+                <li class=""><a href=href="<?php echo site_url('tampil/petugas/' . $data->loket_id); ?>"><?= $data->name ?></a></li>
+              <?php } ?>
+            </ul>
+          </div>
+
+          <a href="<?= site_url('tampil/petugas') ?>" class="btn btn-warning btn-xs">
+            Tampilkan
           </a>
         </div>
         <!-- /.info-box-content -->
@@ -49,8 +61,8 @@
         <div class="info-box-content">
           <span class="info-box-text"><b>Layar Antrian</b></span>
           <span class="info-box-text"><b>Pengunjung</b></span>
-          <a href="<?=site_url('ambil')?>" class="btn btn-warning btn-xs">
-          Tampilkan
+          <a href="<?= site_url('ambil') ?>" class="btn btn-warning btn-xs btn-block">
+            Tampilkan
           </a>
         </div>
         <!-- /.info-box-content -->

@@ -86,40 +86,112 @@
     <!-- AREA CHART -->
     <div class="box box-primary">
       <div class="box-header with-border">
-        <h3 class="box-title">Graphiic Information</h3>
+        <h3 class="box-title">Graphic Information</h3>
       </div>
       <!-- box-body -->
       <div class="box-body">
 
-        <!-- col split 2 -->
+        <!-- col split 2.1 -->
         <div class="col-lg-6 col-xs-6">
           <!-- DONUT CHART -->
-          <!-- small box -->
-          <div class="box box-danger">
+          <div class="box box-warning">
             <div class="box-header with-border">
-              <h3 class="box-title">Antrian perharian</h3>
+              <h3 class="box-title">Antrian Perhari</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+              </div>
             </div>
+            <!-- /.box-header -->
             <div class="box-body">
-              <canvas id="pieChart" style="height:250px"></canvas>
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="chart-responsive">
+                    <canvas id="pieChart" height="150"></canvas>
+                  </div>
+                  <!-- ./chart-responsive -->
+                </div>
+                <!-- /.col -->
+                <div class="col-md-4">
+                  <ul class="chart-legend clearfix">
+                    <li><i class="fa fa-circle-o text-red"></i> Loket 1</li>
+                    <li><i class="fa fa-circle-o text-green"></i> Loket 2</li>
+                    <li><i class="fa fa-circle-o text-yellow"></i> Loket 3</li>
+                    <li><i class="fa fa-circle-o text-aqua"></i> Loket 4</li>
+                  </ul>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
             </div>
             <!-- /.box-body -->
+            <div class="box-footer no-padding">
+              <ul class="nav nav-pills nav-stacked">
+                <!-- top 3 loket -->
+                <li><a href="#">Loket 1
+                    <span class="pull-right text-red"><i class="fa fa-angle-down"></i> 700</span></a></li>
+                <li><a href="#">Loket 2 <span class="pull-right text-green"><i class="fa fa-angle-up"></i> 500</span></a>
+                </li>
+                <li><a href="#">Loket 3
+                    <span class="pull-right text-yellow"><i class="fa fa-angle-left"></i> 400</span></a></li>
+              </ul>
+            </div>
+            <!-- /.footer -->
           </div>
+          <!-- /.box -->
         </div>
         <!-- /.col split 2 -->
-        
-        <!-- col split 2 -->
+
+        <!-- col split 2.2 -->
         <div class="col-lg-6 col-xs-6">
           <!-- DONUT CHART -->
-          <!-- small box -->
-          <div class="box box-danger">
+          <div class="box box-warning">
             <div class="box-header with-border">
-              <h3 class="box-title">Antrian pertahun</h3>
+              <h3 class="box-title">Antrian Perhari</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+              </div>
             </div>
+            <!-- /.box-header -->
             <div class="box-body">
-              <canvas id="pieChart" style="height:250px"></canvas>
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="chart-responsive">
+                    <canvas id="pieChart2" height="150"></canvas>
+                  </div>
+                  <!-- ./chart-responsive -->
+                </div>
+                <!-- /.col -->
+                <div class="col-md-4">
+                  <ul class="chart-legend clearfix">
+                    <li><i class="fa fa-circle-o text-red"></i> Loket 1</li>
+                    <li><i class="fa fa-circle-o text-green"></i> Loket 2</li>
+                    <li><i class="fa fa-circle-o text-yellow"></i> Loket 3</li>
+                    <li><i class="fa fa-circle-o text-aqua"></i> Loket 4</li>
+                  </ul>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
             </div>
             <!-- /.box-body -->
+            <div class="box-footer no-padding">
+              <ul class="nav nav-pills nav-stacked">
+                <!-- top 3 loket -->
+                <li><a href="#">Loket 1
+                    <span class="pull-right text-red"><i class="fa fa-angle-down"></i> 20</span></a></li>
+                <li><a href="#">Loket 2 <span class="pull-right text-green"><i class="fa fa-angle-up"></i> 15</span></a>
+                </li>
+                <li><a href="#">Loket 3
+                    <span class="pull-right text-yellow"><i class="fa fa-angle-left"></i> 13</span></a></li>
+              </ul>
+            </div>
+            <!-- /.footer -->
           </div>
+          <!-- /.box -->
         </div>
         <!-- /.col split 2 -->
       </div>
