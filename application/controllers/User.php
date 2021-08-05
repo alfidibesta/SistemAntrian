@@ -6,14 +6,21 @@ class User extends CI_Controller {
     {
         parent::__construct();
         check_not_login();     
-        check_admin();  
+        // check_admin();  
         $this->load->model('user_m');
+        $this->load->model('loket_m');
         $this->load->library('form_validation');
     }
 
 	public function index()
 	{
-        $data['row'] = $this->user_m->get();
+        
+        $user = $this->user_m->get()->result();
+        $userloket = $this->user_m->getUserLoket()->result();
+        $data = array(
+            'user' => $user,
+            'userloket' => $userloket
+        );
 		$this->template->load('template', 'user/user_data', $data);
     }
     
@@ -27,6 +34,7 @@ class User extends CI_Controller {
         );
         $this->form_validation->set_rules('address', 'Alamat', 'required');
         $this->form_validation->set_rules('level', 'Level', 'required');
+        $this->form_validation->set_rules('loket_id', 'Loket_id');
 
         $this->form_validation->set_message('required', '%s Masih Kosong');
         $this->form_validation->set_message('min_length', '%s Minimal 5 karakter');
@@ -36,7 +44,11 @@ class User extends CI_Controller {
         
         if($this->form_validation->run() == FALSE)
         {
-            $this->template->load('template', 'user/user_form_add');
+            $loket = $this->loket_m->get()->result();
+            $data = array(
+                'loket' => $loket
+            );
+            $this->template->load('template', 'user/user_form_add', $data);
         } else {
             $post = $this->input->post(null, TRUE);
              $this->user_m->add($post);
@@ -51,12 +63,11 @@ class User extends CI_Controller {
     {
         $id = $this->input->post('user_id');
         $this->user_m->del($id);
-
-        if($this->db->affected_rows() > 0){
+        if($this->db->affected_rows() > 0);{
             echo "<script>alert('Data Berhasil Di Hapus');</script>";
         }
         echo "<script>window.location='".site_url('user')."';</script>";
-
+        
     }
 
     public function edit($id)

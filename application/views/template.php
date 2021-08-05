@@ -10,12 +10,21 @@
 	<link rel="stylesheet" href="<?= base_url() ?>assets/bower_components/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="<?= base_url() ?>assets/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
 	<link rel="stylesheet" href="<?= base_url() ?>assets/dist/css/AdminLTE.min.css">
-
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" id="theme-styles">
 	<link rel="stylesheet" href="<?= base_url() ?>assets/dist/css/skins/_all-skins.min.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+	<!-- sweet alert2 -->
+	<link rel="stylesheet" href="<?= base_url() ?>assets/bower_components/sweetAlert2/animate.min.css">
+	<link rel="stylesheet" href="<?= base_url() ?>assets/bower_components/sweetAlert2/sweetalert2.min.css">
+	<link rel="stylesheet" href="<?= base_url() ?>assets/bower_components/sweetAlert2/sweetalert2.min.js">
+	<style>
+        .swal2-popup {
+            font-size: 1.6rem !important;
+        }
+    </style>
 </head>
 
-<body class="hold-transition skin-blue-light sidebar-mini <?= $this->uri->segment(1) == 'ambil' ? 'sidebar-collapse' : null ?>">
+<body class="hold-transition skin-blue sidebar-mini <?= $this->uri->segment(1) == 'ambil' ? 'sidebar-collapse' : null ?>">
 
 	<div class="wrapper">
 		<header class="main-header">
@@ -51,7 +60,7 @@
 										<a href="#" class="btn btn-default btn-flat">Profile</a>
 									</div>
 									<div class="pull-right">
-										<a href="<?= site_url('auth/logout') ?>" class="btn btn-flat bg-red">Keluar</a>
+										<a href="<?= site_url('auth/logout') ?>" class="btn btn-flat bg-red" id="btn-logout">Keluar</a>
 									</div>
 								</li>
 							</ul>
@@ -84,18 +93,25 @@
 				<!-- sidebar menu -->
 				<ul class="sidebar-menu" data-widget="tree">
 					<li class="header">MENU ANTRIAN LOKET</li>
-					<?php if ($this->fungsi->user_login()->level == 1 && 2) { ?>
-						<li <?= $this->uri->segment(1) == 'dashboard' ? 'class="active"' : '' ?>>
-							<a href="<?= site_url('dashboard') ?>"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
-						</li>
-						<li <?= $this->uri->segment(1) == 'loket' ? 'class="active"' : '' ?>>
-							<a href="<?= site_url('loket') ?>"><i class="fa fa-desktop"></i> <span>Loket</span></a>
-						</li>
-					<?php } ?>
-					<li <?= $this->uri->segment(1) == 'tampil' ? 'class="active"' : '' ?>>
-						<a href="<?= site_url('tampil') ?>"><i class="fa fa-users "></i> <span>Layar</span></a>
+
+					<li <?= $this->uri->segment(1) == 'dashboard' ? 'class="active"' : '' ?>>
+						<a href="<?= site_url('dashboard') ?>"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
 					</li>
-					<?php if ($this->fungsi->user_login()->level == 1 && 2) { ?>
+					<li <?= $this->uri->segment(1) == 'loket' ? 'class="active"' : '' ?>>
+						<a href="<?= site_url('loket') ?>"><i class="fa fa-desktop"></i> <span>Loket</span></a>
+					</li>
+					<li <?= $this->uri->segment(1) == 'ambil' ? 'class="active"' : '' ?>>
+						<a href="<?= site_url('ambil') ?>"><i class="fa fa-users "></i> <span>Ambil Antrian</span></a>
+					</li>
+					<li <?= $this->uri->segment(1) == 'ambil' ? 'class="active"' : '' ?>>
+						<a href="<?= site_url('tampil') ?>"><i class="fa fa-user "></i> <span>Layar</span></a>
+					</li>
+					<!-- <li>
+						<a href="">
+							<i class="fa fa-users"></i> <span>Customers</span>
+						</a>
+					</li> -->
+					<?php if ($this->fungsi->user_login()->level == 1) { ?>
 						<li class="treeview" <?= $this->uri->segment(1) == 'history' ? 'class="active"' : '' ?>>
 							<a href="#">
 								<i class="fa fa-pie-chart"></i> <span>History</span>
@@ -103,7 +119,7 @@
 							</a>
 							<ul class="treeview-menu">
 								<li><a href="<?= site_url('antrian') ?>"><i class="fa fa-circle-o"></i> Antrian</a></li>
-								<li><a href="#"><i class="fa fa-circle-o"></i> tes</a></li>
+								<li><a href="#"><i class="fa fa-circle-o"></i> Laporan per tanggal</a></li>
 							</ul>
 						</li>
 					<?php } ?>
@@ -124,7 +140,7 @@
 			<div class="pull-right hidden-xs">
 				<b>Version</b> 1.0
 			</div>
-			<strong>Copyright &copy; <?php echo date("Y") ?> <a href="<?=site_url('dashboard')?>">Dinas Kependudukan Dan Pencatatan Sipil Kota Malang</a></strong>
+			<strong>Copyright &copy; <?php echo date("Y") ?> <a href="#">Dinas Kependudukan Dan Pencatatan Sipil Kota Malang</a></strong>
 		</footer>
 
 	</div>
@@ -133,136 +149,91 @@
 	<script src="<?= base_url() ?>assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="<?= base_url() ?>assets/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 	<script src="<?= base_url() ?>assets/dist/js/adminlte.min.js"></script>
-	<script src="<?= base_url() ?>assets/bower_components/chart.js/Chart.js"></script>
-	
-	<script src="<?= base_url() ?>assets/bower_components/chart.js/Chart.js"></script>
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
 	<script src="<?= base_url() ?>assets/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 	<script src="<?= base_url() ?>assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+
 	<script>
 		$(document).ready(function() {
 			$('#table1').DataTable()
 		})
 	</script>
 
-	<script>
-		//-------------
-		//- PIE CHART 1 -
-		//-------------
-		// Get context with jQuery - using jQuery's .get() method.
-		var pieChartCanvas = $('#pieChart2').get(0).getContext('2d')
-		var pieChart = new Chart(pieChartCanvas)
-		var PieData = [{
-				value: 700,
-				color: '#f56954',
-				highlight: '#f56954',
-				label: 'Loket 1'
-			},
-			{
-				value: 500,
-				color: '#00a65a',
-				highlight: '#00a65a',
-				label: 'Loket 2'
-			},
-			{
-				value: 400,
-				color: '#f39c12',
-				highlight: '#f39c12',
-				label: 'Loket 3'
-			},
-			{
-				value: 600,
-				color: '#00c0ef',
-				highlight: '#00c0ef',
-				label: 'Loket 4'
-			}
-		]
-		var pieOptions = {
-			//Boolean - Whether we should show a stroke on each segment
-			segmentShowStroke: true,
-			//String - The colour of each segment stroke
-			segmentStrokeColor: '#fff',
-			//Number - The width of each segment stroke
-			segmentStrokeWidth: 2,
-			//Number - The percentage of the chart that we cut out of the middle
-			percentageInnerCutout: 50, // This is 0 for Pie charts
-			//Number - Amount of animation steps
-			animationSteps: 100,
-			//String - Animation easing effect
-			animationEasing: 'easeOutBounce',
-			//Boolean - Whether we animate the rotation of the Doughnut
-			animateRotate: true,
-			//Boolean - Whether we animate scaling the Doughnut from the centre
-			animateScale: false,
-			//Boolean - whether to make the chart responsive to window resizing
-			responsive: true,
-			// Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
-			maintainAspectRatio: true,
-			//String - A legend template
-			legendTemplate: '<ul class="<%=name.toLowerCase()%>-legend"><% for (var i=0; i<segments.length; i++){%><li><span style="background-color:<%=segments[i].fillColor%>"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>'
-		}
-		//Create pie or douhnut chart
-		// You can switch between pie and douhnut using the method below.
-		pieChart.Doughnut(PieData, pieOptions)
+<script>
+   $(document).on('click', '#btn-logout', function(e) {
+        e.preventDefault();
+        var link = $(this).attr('href');
 
-		//-------------
-		//- PIE CHART 2 -
-		//-------------
-		// Get context with jQuery - using jQuery's .get() method.
-		var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
-		var pieChart = new Chart(pieChartCanvas)
-		var PieData = [{
-				value: 20,
-				color: '#f56954',
-				highlight: '#f56954',
-				label: 'Loket 1'
-			},
-			{
-				value: 15,
-				color: '#00a65a',
-				highlight: '#00a65a',
-				label: 'Loket 2'
-			},
-			{
-				value: 13,
-				color: '#f39c12',
-				highlight: '#f39c12',
-				label: 'Loket 3'
-			},
-			{
-				value: 10,
-				color: '#00c0ef',
-				highlight: '#00c0ef',
-				label: 'Loket 4'
-			}
-		]
-		var pieOptions = {
-			//Boolean - Whether we should show a stroke on each segment
-			segmentShowStroke: true,
-			//String - The colour of each segment stroke
-			segmentStrokeColor: '#fff',
-			//Number - The width of each segment stroke
-			segmentStrokeWidth: 2,
-			//Number - The percentage of the chart that we cut out of the middle
-			percentageInnerCutout: 50, // This is 0 for Pie charts
-			//Number - Amount of animation steps
-			animationSteps: 100,
-			//String - Animation easing effect
-			animationEasing: 'easeOutBounce',
-			//Boolean - Whether we animate the rotation of the Doughnut
-			animateRotate: true,
-			//Boolean - Whether we animate scaling the Doughnut from the centre
-			animateScale: false,
-			//Boolean - whether to make the chart responsive to window resizing
-			responsive: true,
-			// Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
-			maintainAspectRatio: true,
-			//String - A legend template
-			legendTemplate: '<ul class="<%=name.toLowerCase()%>-legend"><% for (var i=0; i<segments.length; i++){%><li><span style="background-color:<%=segments[i].fillColor%>"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>'
-		}
-		//Create pie or douhnut chart
-		// You can switch between pie and douhnut using the method below.
-		pieChart.Doughnut(PieData, pieOptions)
-	</script>
+        Swal.fire({
+            title: 'Logout?',
+            text: "Apakah anda yakin logout?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Keluar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                    'Berhasil',
+                    'Terima Kasih',
+                    'success'
+                )
+                window.location = link;
+            }
+        })
+    })
+
+	
+    // data loket dan user hapus
+    $(document).on('click', '#btn-hapus', function(e) {
+        e.preventDefault();
+        var link = $(this).attr('href');
+
+        Swal.fire({
+            title: 'Apakah Kamu Yakin?',
+            text: "Anda akan menghapus data ini!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Hapus'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                    'Sukses',
+                    'Data terhapus',
+                    'success'
+                )
+                window.location = link;
+            }
+        })
+    })
+
+    $(document).on('click', '#btn-edit', function(e) {
+        e.preventDefault();
+        var link = $(this).attr('href');
+
+        Swal.fire({
+            title: 'Apakah Kamu Yakin?',
+            text: "Kamu akan membatalkan Antrian ini!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, batalkan!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                    'Dibatalkan!',
+                    'Antrian Sudah Di Batalkan',
+                    'success'
+                )
+                window.location = link;
+            }
+        })
+    })
+</script>
 
 </body>
 

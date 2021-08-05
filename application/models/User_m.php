@@ -16,12 +16,23 @@ class User_m extends CI_Model {
     {
         $this->db->select('*');
         $this->db->from('user');
+        // $this->db->join('loket','loket.loket_id=user.loket_id');
         if($id != null){
             $this->db->where('user_id', $id);
         }
         $query = $this->db->get();
         return $query;
     }
+
+    public function getUserLoket()
+    {
+        $this->db->select('*');
+        $this->db->from('user');
+        // $this->db->join('loket','loket.loket_id=user.loket_id');
+        $query = $this->db->get();
+        return $query;
+    }
+
 
     public function add($post)
     {
@@ -30,6 +41,7 @@ class User_m extends CI_Model {
         $params['password'] = sha1($post['password']);
         $params['address'] = $post['address'] != "" ? $post['address'] : null;
         $params['level'] = $post['level'];
+        $params['loket_id'] = $post['loket_id'];
         $this->db->insert('user', $params);
     }
 
@@ -48,6 +60,7 @@ class User_m extends CI_Model {
         }
         $params['address'] = $post['address'] != "" ? $post['address'] : null;
         $params['level'] = $post['level'];
+        $params['loket_id'] = $post['loket_id'];
         $this->db->where('user_id', $post['user_id']);
         $this->db->update('user', $params);
     }

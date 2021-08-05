@@ -1,6 +1,6 @@
 <center>
     <p>
-    <h1>Silahkan Mengambil Antrian Sesuai Dengan Kebutuhan</h1>
+    <h1>Silahkan Klik Refresh Dan Pilih Sesuai Kebutuhan Anda</h1>
     </p>
 </center>
 <hr>
@@ -22,6 +22,7 @@
         ?>">
     <?php } ?>
 
+    
     <div class="row">
         <?php foreach ($loket as $l => $data) { ?>
             <div class="col-lg-3 col-xs-6" a>
@@ -29,13 +30,13 @@
                     <div class="inner">
                         <input type="hidden" name="no_antrian_loket" value="<?= $data->loket_id ?>" disabled="" class="form-control">
                         <b>
-                            <h3><?= $data->name ?></h3>
+                            <h3><?= $data->name_loket ?></h3>
 
                             <p><?= $data->keterangan ?></p>
                         </b>
                     </div>
                     <div class="icon">
-                        <a href="<?php echo site_url('ambil/saveAntrian/' . $data->loket_id . '/' .$antri); ?>"><i class="fa fa-print"></i></a>
+                        <a href="<?php echo site_url('ambil/saveAntrian/' . $data->loket_id . '/' .$antri); ?>" target="_blank"><i class="fa fa-print"></i></a>
                     </div>
                     <a href="<?php echo site_url('ambil/saveAntrian/' . $data->loket_id); ?>" class="small-box-footer">
                         Ambil Antrian <i class="fa fa-arrow-circle-right"></i>

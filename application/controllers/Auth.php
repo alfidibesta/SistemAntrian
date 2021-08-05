@@ -20,15 +20,51 @@ class Auth extends CI_Controller {
 					'level' => $row->level
 				);
 				$this->session->set_userdata($params);
-				echo "<script>
-					alert('Selamat, Anda berhasil masuk');
-					window.location='".site_url('dashboard')."';
-				</script>";
+
+				?>
+				<link rel="stylesheet" href="<?= base_url() ?>assets/bower_components/sweetAlert2/sweetalert2.min.css">
+				<script src="<?= base_url() ?>assets/bower_components/sweetAlert2/sweetalert2.min.js"></script>
+				<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+				<style>
+					body{
+						font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+						font-size: 1.124rem;
+						font-weight: normal;
+					}
+				</style>
+				<body></body>
+				<script>
+					Swal.fire({
+						icon: 'success',
+						title: 'Sukses',
+						text: 'Selamat, login berhasil!'
+					}).then((result) => {
+						window.location='<?=site_url('dashboard')?>';
+        			})
+				</script>
+				<?php
 			} else {
-				echo "<script>
-					alert('Login gagal');
-					window.location='".site_url('auth/login')."';
-				</script>";
+				?>
+				<link rel="stylesheet" href="<?= base_url() ?>assets/bower_components/sweetAlert2/sweetalert2.min.css">
+				<script src="<?= base_url() ?>assets/bower_components/sweetAlert2/sweetalert2.min.js"></script>
+				<style>
+					body{
+						font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+						font-size: 1.124rem;
+						font-weight: normal;
+					}
+				</style>
+				<body></body>
+				<script>
+					Swal.fire({
+						icon: 'error',
+						title: 'Login Gagal',
+						text: 'Coba Lagi!'
+					}).then((result) => {
+						window.location='<?=site_url('auth/login')?>';
+        			})
+				</script>
+				<?php
 			}
 		}
     }

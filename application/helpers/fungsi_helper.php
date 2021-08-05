@@ -25,15 +25,7 @@ function check_admin() {
     $ci->load->library('fungsi');
     if($ci->fungsi->user_login()->level != 1) {
         redirect('dashboard','refresh');        
-    }
-}
-
-function check_pengunjung() {
-    $ci =& get_instance();
-    $ci->load->library('fungsi');
-    if($ci->fungsi->user_login()->level != 3) {
-        redirect('ambil','refresh');        
-    }
+    } 
 }
 
 // function indo_currency($nominal)

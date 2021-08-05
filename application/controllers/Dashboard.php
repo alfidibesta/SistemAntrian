@@ -7,7 +7,7 @@ class Dashboard extends CI_Controller {
     {
         parent::__construct();
         check_not_login();     
-        check_admin();
+        // check_admin();
     }
 
 	public function index()

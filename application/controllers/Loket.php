@@ -7,7 +7,7 @@ class Loket extends CI_Controller {
     {
         parent::__construct();
         check_not_login();     
-        check_admin();  
+        // check_admin();  
         $this->load->model('loket_m');
         $this->load->library('form_validation');
     }
@@ -20,7 +20,7 @@ class Loket extends CI_Controller {
 
     public function add()
 	{
-		$this->form_validation->set_rules('name', 'Name', 'required|is_unique[loket.name]');
+		$this->form_validation->set_rules('name_loket', 'Name_loket', 'required|is_unique[loket.name_loket]');
         $this->form_validation->set_rules('kode_loket', 'Kode_loket', 'required');
         $this->form_validation->set_rules('keterangan', 'Keterangan', 'required');
 
@@ -53,7 +53,7 @@ class Loket extends CI_Controller {
 
     public function edit($id)
     {
-        $this->form_validation->set_rules('name', 'Name', 'required');
+        $this->form_validation->set_rules('name_loket', 'Name_loket', 'required');
         $this->form_validation->set_rules('keterangan', 'Keterangan', 'required');
 
         

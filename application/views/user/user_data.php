@@ -30,23 +30,28 @@
                         <th>Name</th>
                         <th>Alamat</th>
                         <th>Level</th>
+                        <!-- <th>Petugas</th> -->
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php $no = 1;
-                    foreach($row->result() as $key => $data) { ?>
+                    foreach($user as $key => $data) { ?>
                     <tr>
                         <td style="width:5%;"><?=$no++?>.</td>
                         <td><?=$data->username?></td>
                         <td><?=$data->name?></td>
                         <td><?=$data->address?></td>
                         <td><?=$data->level == 1 ? "Admin" : "Loket"?></td>
+                        <!-- <td><?=$data->name_loket?></td> -->
                         <td class="text-center" width="160px">
                         <form action="<?=site_url('user/del')?>" method="post">
                                 <a href="<?=site_url('user/edit/' .$data->user_id)?>" class="btn btn-warning btn-xs">
                                     <i class="fa fa-pencil"></i> Edit
                                 </a>
+                                <!-- <a href="<?=site_url('user/del/' .$data->user_id)?>" class="btn btn-danger btn-xs" id="btn-hapus">
+                                    <i class="fa fa-trash"></i> Edit
+                                </a> -->
                                 <input type="hidden" name="user_id" value="<?=$data->user_id?>">
                                 <button onclick="return confirm('Apakah Anda Yakin ?')"class="btn btn-danger btn-xs">
                                     <i class="fa fa-trash"></i> Hapus

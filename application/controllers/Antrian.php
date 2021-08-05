@@ -14,7 +14,7 @@ class Antrian extends CI_Controller {
 
 	public function index()
 	{
-        $this->load->model('loket_m');
+        // $this->load->model('loket_m');
         $data['row'] = $this->antrianloket_m->getAll();
 		$this->template->load('template', 'antrian/antrian_data', $data);
 	}

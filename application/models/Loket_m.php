@@ -6,6 +6,7 @@ class Loket_m extends CI_Model {
     {
         $this->db->select('*');
         $this->db->from('loket');
+        $this->db->order_by('name_loket', 'ASC');
         if($id != null){
             $this->db->where('loket_id', $id);
         }
@@ -14,9 +15,15 @@ class Loket_m extends CI_Model {
         return $query;
     }
 
+    public function get_id($table, $where){
+		$this->db->where($where);
+		$sql=$this->db->get($table);
+		return $sql;
+	}
+
     public function add($post)
     {
-        $params['name'] = $post['name'];
+        $params['name_loket'] = $post['name_loket'];
         $params['kode_loket'] = $post['kode_loket'];
         $params['keterangan'] = $post['keterangan'];
         $this->db->insert('loket', $params);
@@ -30,7 +37,7 @@ class Loket_m extends CI_Model {
 
     public function edit($post)
     {
-        $params['name'] = $post['name'];
+        $params['name_loket'] = $post['name_loket'];
         $params['keterangan'] = $post['keterangan'];
         $this->db->where('loket_id', $post['loket_id']);
         $this->db->update('loket', $params);

@@ -16,7 +16,7 @@
             <h3 class="box-title">Data Loket</h3>
             <div class="pull-right">
                 <a href="<?=site_url('loket')?>" class="btn btn-warning btn-flat">
-                    <i class="fa fa-undo"></i> Back
+                    <i class="fa fa-undo"></i> Kembali
                 </a>
             </div>
         </div>
@@ -26,10 +26,10 @@
                 <div class="col-md-4 col-md-offset-4">
                 
                     <form action="" method="post">
-                        <div class="form-group <?=form_error('name') ? 'has-error' : null?>">
+                        <div class="form-group <?=form_error('name_loket') ? 'has-error' : null?>">
                             <label>Nama *</label>
-                            <input type="text" name="name" value="<?=set_value('name')?>" class="form-control">
-                            <span class="help-block"><?=form_error('name')?></span>
+                            <input type="text" name="name_loket" value="<?=set_value('name_loket')?>" class="form-control">
+                            <span class="help-block"><?=form_error('name_loket')?></span>
                         </div>
                         <div class="form-group <?=form_error('kode_loket') ? 'has-error' : null?>">
                             <label>Kode Loket *</label>
@@ -42,7 +42,7 @@
                             <span class="help-block"><?=form_error('keterangan')?></span>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-success btn-flat">Save</button>
+                            <button type="submit" class="btn btn-success btn-flat">Simpan</button>
                             <button type="reset" class="btn btn-danger btn-flat">Reset</button>
                         </div>
                     </form>

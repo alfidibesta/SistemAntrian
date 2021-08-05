@@ -1,3 +1,6 @@
-####################################################################
-PROYEK PKL - SISTEM ANTRIAN DINAS KEPENDUDUKAN DAN PENCATATAN SIPIL
-####################################################################
+*********
+Login Admin
+*********
+
+-  `admin@admin.com`_
+-  `password`_

@@ -12,10 +12,10 @@
 <section class="content">
 
     <div class="box">
-         <div class="box-header">
+        <div class="box-header">
             <!-- <h3 class="box-title">Data Loket</h3> -->
             <div class="pull-right">
-                <a href="<?=site_url('loket/add')?>" class="btn btn-primary btn-flat">
+                <a href="<?= site_url('loket/add') ?>" class="btn btn-primary btn-flat">
                     <i class="fa fa-user-plus"></i> Tambah
                 </a>
             </div>
@@ -34,24 +34,27 @@
                 </thead>
                 <tbody>
                     <?php $no = 1;
-                    foreach($row->result() as $key => $data) { ?>
-                    <tr>
-                        <td style="width:5%;"><?=$no++?>.</td>
-                        <td><?=$data->name?></td>
-                        <td><?=$data->kode_loket?></td>
-                        <td><?=$data->keterangan?></td>
-                        <td class="text-center" width="160px">
-                        <form action="<?=site_url('loket/del')?>" method="post">
-                                <a href="<?=site_url('loket/edit/' .$data->loket_id)?>" class="btn btn-warning btn-xs">
-                                    <i class="fa fa-pencil"></i> Edit
-                                </a>
-                                <input type="hidden" name="loket_id" value="<?=$data->loket_id?>">
-                                <button onclick="return confirm('Apakah Anda Yakin ?')"class="btn btn-danger btn-xs">
-                                    <i class="fa fa-trash"></i> Hapus
-                                </button>
-                            </form>
-                        </td>
-                    </tr>
+                    foreach ($row->result() as $key => $data) { ?>
+                        <tr>
+                            <td style="width:5%;"><?= $no++ ?>.</td>
+                            <td><?= $data->name_loket ?></td>
+                            <td><?= $data->kode_loket ?></td>
+                            <td><?= $data->keterangan ?></td>
+                            <td class="text-center" width="160px">
+                            <!-- <form action="<?= site_url('loket/del') ?>" method="post"> -->
+                                    <a href="<?= site_url('loket/edit/' . $data->loket_id) ?>" class="btn btn-warning btn-xs">
+                                        <i class="fa fa-pencil"></i> Edit
+                                    </a>
+                                    <!-- <input type="hidden" name="loket_id" value="<?= $data->loket_id ?>"> -->
+                                    <a href="<?= site_url('loket/del/' .  $data->loket_id) ?> ?>" class="btn btn-danger btn-xs" id="btn-hapus" type="hidden" name="loket_id">
+                                        <i class="fa fa-trash"></i> Hapus
+                                    </a>
+                                    <!-- <button onclick="return confirm('Apakah Anda Yakin ?')" class="btn btn-danger btn-xs">
+                                        <i class="fa fa-trash"></i> Hapus
+                                    </button> -->
+                                <!-- </form> -->
+                            </td>
+                        </tr>
                     <?php } ?>
                 </tbody>
             </table>
